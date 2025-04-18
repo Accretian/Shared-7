@@ -2,6 +2,18 @@
 #include <vector>
 #include <string>
 
+
+std::vector<std::string> vectorrecursion(std::vector<std::string> vector) {
+
+
+
+
+
+
+}
+
+
+
 int main() {
 
 	std::string str;
@@ -16,5 +28,8 @@ int main() {
 	}
 
 	
+
+
+
 
 }
