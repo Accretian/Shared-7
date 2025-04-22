@@ -1,46 +1,34 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <algorithm>
-#include <cstring>
-
-
-static std::vector<std::string> vectorsort(std::vector<std::string> vector) {
-
-
-	for (int i = 0; i != (int)vector.size(); i++) {
-		for (int j = 0; j != (int)vector.size(); j++) {
-			if (std::strcmp(vector[j].c_str(), vector[i].c_str()) < 0) {
-				std::swap(vector[j], vector[i]);
-			}
-		}
-	}
-
-	return vector;
-
-}
 
 
 
 int main() {
+	int m, n, k;
+	std::cin >> m >> n >> k;
+	std::vector<std::vector<char>> field(m, std::vector<char>(n));
 
-	std::string str;
-	std::vector<std::string> vstring;
-
-	while (true) {
-		std::getline(std::cin, str);
-		if (str != "")
-			vstring.push_back(str);
-		else break;
+	for (int i = 0; i != m; i++) {
+		for (int j = 0; j != n; j++) {
+			field[i][j] = '0';
+		}
 	}
 
-	vstring = vectorsort(vstring);
+	for (int i = 0; i < k; i++) {
+		int a, b;
+		std::cin >> a >> b;
+		field[b][a] = '*';
+	}
 
-	for (std::string s : vstring)
-		std::cout << s << '\n';
+	for (int i = 0; i != n; i++) {
+		for (int j = 0; j != m; j++) {
+			std::cout << field[i][j] << ' ';
+		}
 
+		std::cout << '\n';
+	}
 
-	std::cin >> str;
-
+	std::cin >> m;
 
 }
