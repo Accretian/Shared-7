@@ -15,9 +15,12 @@ int main() {
 		}
 	}
 
+
+	//мины считаются не с 0 а 1;
 	for (int i = 0; i < k; i++) {
 		int a, b;
 		std::cin >> a >> b;
+		a--; b--;
 		field[a][b] = '*';
 	}
 
