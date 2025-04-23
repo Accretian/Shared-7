@@ -18,11 +18,55 @@ int main() {
 	for (int i = 0; i < k; i++) {
 		int a, b;
 		std::cin >> a >> b;
-		field[b][a] = '*';
+		field[a][b] = '*';
 	}
 
-	for (int i = 0; i != n; i++) {
-		for (int j = 0; j != m; j++) {
+	for (int i = 0; i != m; i++) {
+		for (int j = 0; j != n; j++) {
+			if (field[i][j] != '*') {
+				if ((i - 1) >= 0 && (j - 1) >= 0) {
+					if (field[i - 1][j - 1] == '*')
+						field[i][j]++;
+				}
+				if ((i - 1) >= 0) {
+					if (field[i - 1][j] == '*')
+						field[i][j]++;
+				}
+				if ((i - 1) >= 0 && (j + 1) < n) {
+					if (field[i - 1][j + 1] == '*')
+						field[i][j]++;
+				}
+				if ((j + 1) < n) {
+					if (field[i][j + 1] == '*')
+						field[i][j]++;
+				}
+				if ((i + 1) < m && (j + 1) < n) {
+					if (field[i + 1][j + 1] == '*')
+						field[i][j]++;
+				}
+				if ((i + 1) < m) {
+					if (field[i + 1][j] == '*')
+						field[i][j]++;
+				}
+				if ((i + 1) < m && (j - 1) >= 0) {
+					if (field[i + 1][j - 1] == '*')
+						field[i][j]++;
+				}
+				if ((j - 1) >= 0) {
+					if (field[i][j - 1] == '*')
+						field[i][j]++;
+				}
+			}
+		}
+	}
+	
+
+
+
+
+
+	for (int i = 0; i != m; i++) {
+		for (int j = 0; j != n; j++) {
 			std::cout << field[i][j] << ' ';
 		}
 
